@@ -12,4 +12,6 @@ Install singularity on your machine. A guide for installation on different opera
 
 ```
 $ singularity pull docker://jrnold/rstan
+
+This should download the image 'rstan_latest.sif' to your computer.
 ```
