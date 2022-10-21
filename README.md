@@ -10,12 +10,13 @@ Install singularity on your machine. A guide for installation on different opera
 
 A good example of how rstan can be run in singularity is via an image provided by [Wytamma Wirth](https://blog.wytamma.com/blog/Singularity-RStan/).
 
+## Pull the image
 once singularity is installed, pull the following container:
 
 ```
 $ singularity pull docker://jrnold/rstan
 ```
-This should download the image 'rstan_latest.sif' to your computer.
+This should download the image 'rstan_latest.sif' to your computer (it might take a while).
 
 In singularity, now run the image using the command
 
@@ -24,6 +25,7 @@ $ singularity shell rstan_latest.sif
 ```
 
 to execute the image.
+## Run singularity
 
 Run singularity by typing
 
