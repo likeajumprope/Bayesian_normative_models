@@ -1,8 +1,19 @@
 # Bayesian_normative_models
 
-This repository contains the Stan files used for the hierarchical Bayesian linear model (HBLM.stan), the hierarchical Bayesian Gaussian Process model (HBGPM.stan) and the simple Bayesain linear model (NoSite.stan) as described in the paper "Accommodating site variation in neuroimaging data using normative and hierarchical Bayesian models" (Bayer et al., 2022).
+This repository contains the Stan files used in the hierarchical Bayesian linear model (HBLM.stan), the hierarchical Bayesian Gaussian Process model (HBGPM.stan) and the simple Bayesain linear model (NoSite.stan) as described in the paper "Accommodating site variation in neuroimaging data using normative and hierarchical Bayesian models" (Bayer et al., 2022).
 
-# The code can be run in a singularity container.
+<details><summary>Instructions on how to structure input files</summary></details>
+<br>
+<details><summary>Running the code via rstan or pystan</summary>
+<br>
+The stan code can be run via the R or Python interface libraries. For R, the libraries 
+<a href="https://mc-stan.org/users/interfaces/rstan">rstan</a>  and <a href="https://mc-stan.org/rstanarm/">rstanarm</a>  can be downloaded via CRAN.
+For Python, <a href="https://pystan.readthedocs.io/en/latest/">pystan</a> can be installed via the pip install system.
+
+</details>
+<br>
+
+<details><summary>Running the code in a singularity container</summary>
 
 ## Install singularity
 
@@ -56,4 +67,5 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 ```
+</details>
 
