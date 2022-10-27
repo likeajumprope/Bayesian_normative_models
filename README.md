@@ -4,8 +4,41 @@ This repository contains the Stan files used in the hierarchical Bayesian linear
 
 <details>
     <summary>Instructions on how to structure input files</summary>
+    
 
-    X
+    
+    int<lower=1> N; // total number of observations
+
+    vector[N] Y; // response variable (cortical thickness)
+
+    int<lower=1> K;  // number of population-level effects 
+
+    matrix[N, K] X;  // population-level design matrix  
+  
+
+Gaussian process parts population level effects
+
+    int<lower=1> Kgp_1;
+    int<lower=1> Dgp_1; // number of dimensions of GP (= one == Age)
+    vector[Dgp_1] Xgp_1[N]; // input vector of GP = Age vector again
+
+Data for group-level effects of ID 1
+    int<lower=1> J_1[N]; // Site vector, lookup table for site
+    int<lower=1> N_1; // number of sites == 20
+    int<lower=1> M_1; // number of group level effects == 2 == slope and intercept for site
+    vector[N] Z_1_1; // long vector for intercept regressor of site == all ones
+    int prior_only;  // should the likelihood be ignored?
+
+Test input
+    int<lower=1> N_test; //number of test cases
+    matrix[N_test, K] X_test; // test cases design matrix
+
+Data for group-level effects of ID 1 test cases
+  int<lower=1> J_1_test[N_test]; //site index
+  vector[N_test] Z_1_1_test; // test set: long vector for intercept regressor of site == all ones
+  vector[Dgp_1] Xgp_2[N_test]; // test set:  input vector of GP = Age vector again
+  vector[N_test] Y_test;
+
 </details>
 <br>
 
@@ -13,9 +46,12 @@ This repository contains the Stan files used in the hierarchical Bayesian linear
     <summary>Running the code via rstan or pystan</summary>
 <br>
 
-The stan code can be run via the R or Python interface libraries. For R, the libraries
-<a href="https://mc-stan.org/users/interfaces/rstan">rstan</a>  and <a href="https://mc-stan.org/rstanarm/">rstanarm</a>  can be downloaded via CRAN.
-For Python, <a href="https://pystan.readthedocs.io/en/latest/">pystan</a> can be installed via the pip install system.
+The stan code can be run via the R or Python interface libraries. For R, the libraries <a href="https://mc-stan.org/users/interfaces/rstan">rstan</a>  and <a href="https://mc-stan.org/rstanarm/">rstanarm</a>  can be downloaded via CRAN. Alterantively, the latest version of rstan can be downloaded from the [rstan Github](https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started).
+
+For Python, <a href="https://pystan.readthedocs.io/en/latest/">pystan</a> can be installed via the pip install system. 
+
+The [rstan Github](https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started) also provides information on how to configure the C++ Toolchain on your machine and some useful information on the general use of rstan and stan.
+
 
 </details>
 <br>
