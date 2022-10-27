@@ -4,7 +4,6 @@ This repository contains the Stan files used in the hierarchical Bayesian linear
 
 <details>
     <summary>Instructions on how to structure input files</summary>
-    
 
     
     int<lower=1> N; // total number of observations
@@ -23,6 +22,7 @@ Gaussian process parts population level effects
     vector[Dgp_1] Xgp_1[N]; // input vector of GP = Age vector again
 
 Data for group-level effects of ID 1
+
     int<lower=1> J_1[N]; // Site vector, lookup table for site
     int<lower=1> N_1; // number of sites == 20
     int<lower=1> M_1; // number of group level effects == 2 == slope and intercept for site
@@ -30,14 +30,16 @@ Data for group-level effects of ID 1
     int prior_only;  // should the likelihood be ignored?
 
 Test input
+
     int<lower=1> N_test; //number of test cases
     matrix[N_test, K] X_test; // test cases design matrix
 
 Data for group-level effects of ID 1 test cases
-  int<lower=1> J_1_test[N_test]; //site index
-  vector[N_test] Z_1_1_test; // test set: long vector for intercept regressor of site == all ones
-  vector[Dgp_1] Xgp_2[N_test]; // test set:  input vector of GP = Age vector again
-  vector[N_test] Y_test;
+
+    int<lower=1> J_1_test[N_test]; //site index
+    vector[N_test] Z_1_1_test; // test set: long vector for intercept regressor of site == all ones
+    vector[Dgp_1] Xgp_2[N_test]; // test set:  input vector of GP = Age vector again
+    vector[N_test] Y_test;
 
 </details>
 <br>
