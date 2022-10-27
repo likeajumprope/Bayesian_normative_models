@@ -32,14 +32,14 @@ data {
   int<lower=1> J_1[N]; // Site vector, lookup table for site
   int<lower=1> N_1; // number of sites == 20
   int<lower=1> M_1; // number of group level effects == 2 == slope and intercept for site
-  vector[N] Z_1_1; // long vector for intercept regerssor of site == all ones
+  vector[N] Z_1_1; // long vector for intercept regressor of site == all ones
   int prior_only;  // should the likelihood be ignored?
     //test input
   int<lower=1> N_test; //number of test cases
   matrix[N_test, K] X_test; // test cases design matrix
   // data for group-level effects of ID 1 test cases
   int<lower=1> J_1_test[N_test]; //site index
-  vector[N_test] Z_1_1_test; // test set: long vector for intercept regerssor of site == all ones
+  vector[N_test] Z_1_1_test; // test set: long vector for intercept regressor of site == all ones
   vector[Dgp_1] Xgp_2[N_test]; // test set:  input vector of GP = Age vector again
   vector[N_test] Y_test;
 }
@@ -61,7 +61,7 @@ transformed data {
 }
   parameters {
   vector[Kc] b;  // population-level effects: slope and Age
-  real temp_Intercept;  // temporary intercept: interecpt offset
+  real temp_Intercept;  // temporary intercept: intercept offset
   real<lower=0> sigma;  // residual SD
   //Gaussian Process Parameters
   vector<lower=0>[Kgp_1] sdgp_1;
